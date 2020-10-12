@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.awei.cloud.dao.userDao">
+    <resultMap id="adminMap" type="com.awei.cloud.entity.UserEntity">
+        <id column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="password" property="password"/>
+
+    </resultMap>
+    <insert id="insertUser" parameterType="com.awei.cloud.entity.UserEntity">
+        insert  into star_admin (uid,name,sex,password)
+        values (#{uid},#{name},#{sex},#{password})
+    </insert>
+</mapper>
