@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+
     @Autowired
     private RedisUtil redisUtil;
 
@@ -19,12 +20,15 @@ public class UserController {
         user.setUserName("su");
         user.setPassword("123");
         redisUtil.set("user", user);
+        redisUtil.expire("user", 10);
         return "success saved user !";
     }
 
     @RequestMapping("/get")
     public String get() {
         User user = (User) redisUtil.get("user");
+//        redisUtil.del("user");
         return user.toString();
+//        return  "";
     }
 }
