@@ -16,10 +16,7 @@ public class UserEntity {
 
     private String sex;
 
-
-
     private String password;
-
 
     public String getName() {
         return name;
