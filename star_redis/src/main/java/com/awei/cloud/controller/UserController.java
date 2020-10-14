@@ -2,7 +2,7 @@ package com.awei.cloud.controller;
 
 
 import com.awei.cloud.entity.User;
-import com.awei.cloud.utils.RedisUtil;
+import com.awei.cloud.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

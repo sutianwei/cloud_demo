@@ -10,7 +10,7 @@ public class UserEntity {
     /**
      * 客户唯一标识
      */
-    private Integer uid;
+    private String uid;
 
     private String name;
 
@@ -34,14 +34,13 @@ public class UserEntity {
         this.id = id;
     }
 
-    public Integer getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
-
 
     public String getSex() {
         return sex;

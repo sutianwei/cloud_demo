@@ -1,6 +1,8 @@
 package com.awei.cloud.service.service;
 
+import com.awei.cloud.service.request.InsertCompanyBizRequest;
+
 public interface CompanyService {
 
-    public int insert();
+    public void insert(InsertCompanyBizRequest request);
 }
