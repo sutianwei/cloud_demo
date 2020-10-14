@@ -14,4 +14,11 @@
         insert  into company (com_holding,com_id,com_local,com_name)
         values (#{comHolding},#{comId},#{comLocal},#{comName})
     </insert>
+    <delete id="delete" parameterType="com.awei.cloud.entity.CompanyEntity">
+        delete  from  company   where com_id in
+        <foreach collection="ids"  item="ids" open="(" close=")" separator=",">
+                #{ids}
+        </foreach>
+
+    </delete>
 </mapper>

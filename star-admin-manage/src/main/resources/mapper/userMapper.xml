@@ -15,4 +15,6 @@
         insert  into star_admin (uid,name,sex,password)
         values (#{uid},#{name},#{sex},#{password})
     </insert>
+
+
 </mapper>

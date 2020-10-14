@@ -1,6 +1,8 @@
 package com.awei.cloud.controller.controller;
 
+import com.awei.cloud.controller.request.DeleteCompanyRequest;
 import com.awei.cloud.controller.request.InsertCompanyRequest;
+import com.awei.cloud.service.request.DeleteCompanyBizRequest;
 import com.awei.cloud.service.request.InsertCompanyBizRequest;
 import com.awei.cloud.service.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,14 @@ public class CompanyController {
         bizRequest.setComLocal(request.getComLocal());
         bizRequest.setComName(request.getComName());
         service.insert(bizRequest);
+    }
+
+    @PostMapping("delete")
+    public void delete(@RequestBody DeleteCompanyRequest request) {
+
+        DeleteCompanyBizRequest bizRequest = new DeleteCompanyBizRequest();
+        bizRequest.setIds(request.getIds());
+        service.deleteCompany(bizRequest);
+
     }
 }

@@ -23,4 +23,6 @@ public class UserServiceImpl   implements UserService {
         userEntity.setUid(uid);
         userDao.insertUser(userEntity);
     }
+
+
 }
