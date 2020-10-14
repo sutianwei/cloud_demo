@@ -1,12 +1,17 @@
 package com.awei.cloud.controller.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class InsertCompanyRequest {
 
 
+    @JSONField(name = "com_name")
     private String comName;
 
+    @JSONField(name = "com_holding")
     private String comHolding;
 
+    @JSONField(name = "com_local")
     private String comLocal;
 
     public String getComName() {
