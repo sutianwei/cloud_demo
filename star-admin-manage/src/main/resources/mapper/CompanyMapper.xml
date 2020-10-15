@@ -21,4 +21,9 @@
         </foreach>
 
     </delete>
+
+    <select id="getCompany" resultMap="companyMap">
+        select * from company
+        where com_id = #{comId}
+    </select>
 </mapper>
