@@ -12,7 +12,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @RequestMapping("/insert")
+    @PostMapping("/insert")
     public void insert(){
 
         userService.insert(null);
