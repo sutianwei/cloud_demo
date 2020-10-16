@@ -9,11 +9,12 @@
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>
         <result column="password" property="password"/>
+        <result column="company" property="company"/>
 
     </resultMap>
     <insert id="insertUser" parameterType="com.awei.cloud.entity.UserEntity">
-        insert  into star_admin (uid,name,sex,password)
-        values (#{uid},#{name},#{sex},#{password})
+        insert  into star_admin (uid,name,sex,password,company)
+        values (#{uid},#{name},#{sex},#{password},#{company})
     </insert>
 
 

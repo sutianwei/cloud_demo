@@ -14,6 +14,16 @@ public class InsertCompanyRequest {
     @JSONField(name = "com_local")
     private String comLocal;
 
+    private String company;
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
     public String getComName() {
         return comName;
     }

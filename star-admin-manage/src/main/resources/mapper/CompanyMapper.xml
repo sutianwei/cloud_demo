@@ -35,4 +35,9 @@
         where com_id = #{comId}
 
     </update>
+    <select id="selectCompany" resultMap="companyMap">
+    select  com_name from company
+
+
+    </select>
 </mapper>

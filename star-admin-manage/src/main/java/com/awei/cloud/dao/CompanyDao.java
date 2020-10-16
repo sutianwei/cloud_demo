@@ -16,5 +16,7 @@ public interface CompanyDao {
 
     CompanyEntity getCompany(@Param("comId") String comId);
 
+    List<CompanyEntity>  selectCompany();
+
     void updateCompany(CompanyEntity entity);
 }
