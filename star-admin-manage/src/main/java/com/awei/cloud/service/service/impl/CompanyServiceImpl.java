@@ -9,7 +9,6 @@ import com.awei.cloud.service.request.InsertCompanyBizRequest;
 import com.awei.cloud.service.service.CompanyService;
 import com.awei.cloud.util.RedisUtil;
 import com.awei.cloud.util.UUIDUtils;
-import org.checkerframework.checker.units.qual.C;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +30,7 @@ public class CompanyServiceImpl implements CompanyService {
         entity.setComName(request.getComName());
         String comId = UUIDUtils.getUUID();
         entity.setComId(comId);
-        redisUtil.set(entity.getComId(), entity);
+        redisUtil.set("UID"+entity.getComId(), entity);
         companyDao.insert(entity);
     }
 
@@ -45,7 +44,7 @@ public class CompanyServiceImpl implements CompanyService {
     public CompanyEntity getCompany(GetCompanyBizRequest bizRequest) {
 
 
-        Object o = redisUtil.get(bizRequest.getComId());
+        Object o = redisUtil.get("UID"+bizRequest.getComId());
         if (o != null) {
             return (CompanyEntity) o;
         }

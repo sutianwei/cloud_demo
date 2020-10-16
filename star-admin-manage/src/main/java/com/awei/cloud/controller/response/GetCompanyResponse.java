@@ -4,7 +4,6 @@ import com.awei.cloud.controller.VO.GetCompanyVO;
 
 public class GetCompanyResponse {
 
-
     private GetCompanyVO company;
 
     public GetCompanyVO getCompany() {

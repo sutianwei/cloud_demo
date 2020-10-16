@@ -12,6 +12,7 @@ import com.awei.cloud.service.request.DeleteCompanyBizRequest;
 import com.awei.cloud.service.request.GetCompanyBizRequest;
 import com.awei.cloud.service.request.InsertCompanyBizRequest;
 import com.awei.cloud.service.service.CompanyService;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,7 +49,7 @@ public class CompanyController {
 
     }
 
-
+    @ApiParam(name = "获取公司信息")
     @PostMapping(path = "/get_company")
     public GetCompanyResponse getCompany(@RequestBody GetCompanyRequest request) {
 
@@ -69,7 +70,7 @@ public class CompanyController {
         return response;
     }
 
-    @PostMapping("update1")
+    @PostMapping("update")
     public void updateCompany(@RequestBody UpdateCompanyRequest request) {
         service.updateCompany(request);
 
