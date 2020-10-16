@@ -1,5 +1,6 @@
 package com.awei.cloud.service.service;
 
+import com.awei.cloud.controller.request.UpdateCompanyRequest;
 import com.awei.cloud.entity.CompanyEntity;
 import com.awei.cloud.service.request.DeleteCompanyBizRequest;
 import com.awei.cloud.service.request.GetCompanyBizRequest;
@@ -11,7 +12,9 @@ public interface CompanyService {
 
     public void insert(InsertCompanyBizRequest request);
 
-    void deleteCompany(DeleteCompanyBizRequest  bizRequest);
+    void deleteCompany(DeleteCompanyBizRequest bizRequest);
 
-    CompanyEntity getCompany(GetCompanyBizRequest  bizRequest);
+    CompanyEntity getCompany(GetCompanyBizRequest bizRequest);
+
+    void updateCompany(UpdateCompanyRequest request);
 }

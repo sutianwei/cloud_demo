@@ -4,6 +4,7 @@ import com.awei.cloud.controller.VO.GetCompanyVO;
 import com.awei.cloud.controller.request.DeleteCompanyRequest;
 import com.awei.cloud.controller.request.GetCompanyRequest;
 import com.awei.cloud.controller.request.InsertCompanyRequest;
+import com.awei.cloud.controller.request.UpdateCompanyRequest;
 import com.awei.cloud.controller.response.GetCompanyResponse;
 import com.awei.cloud.entity.CompanyEntity;
 import com.awei.cloud.service.request.DeleteCompanyBizRequest;
@@ -47,17 +48,23 @@ public class CompanyController {
         GetCompanyBizRequest bizRequest = new GetCompanyBizRequest();
         bizRequest.setComId(request.getComId());
 
-        CompanyEntity entity= service.getCompany(bizRequest);
+        CompanyEntity entity = service.getCompany(bizRequest);
 
-        GetCompanyVO  companyVO = new GetCompanyVO();
+        GetCompanyVO companyVO = new GetCompanyVO();
         companyVO.setComHolding(entity.getComHolding());
         companyVO.setComId(entity.getComId());
         companyVO.setComLocal(entity.getComLocal());
         companyVO.setComName(entity.getComName());
 
-        GetCompanyResponse  response =new GetCompanyResponse();
+        GetCompanyResponse response = new GetCompanyResponse();
         response.setCompany(companyVO);
 
         return response;
+    }
+
+    @PostMapping("update1")
+    public void updateCompany(@RequestBody UpdateCompanyRequest request) {
+        service.updateCompany(request);
+
     }
 }

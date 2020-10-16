@@ -15,4 +15,6 @@ public interface CompanyDao {
     void delete(@Param("ids") Collection<String> ids);
 
     CompanyEntity getCompany(@Param("comId") String comId);
+
+    void updateCompany(CompanyEntity entity);
 }

@@ -26,4 +26,13 @@
         select * from company
         where com_id = #{comId}
     </select>
+
+    <update id="updateCompany" parameterType="com.awei.cloud.entity.CompanyEntity">
+        update company
+        set  com_local = #{comLocal},
+            com_name = #{comName},
+            com_holding = #{comHolding}
+        where com_id = #{comId}
+
+    </update>
 </mapper>
