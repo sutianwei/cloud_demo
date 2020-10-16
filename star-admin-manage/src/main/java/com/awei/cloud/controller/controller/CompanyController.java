@@ -24,7 +24,12 @@ public class CompanyController {
     @Autowired
     private CompanyService service;
 
-    @PostMapping("/insert_company")
+    /**
+     * 添加公司
+     * @param request
+     * @return
+     */
+    @PostMapping(path = "/insert_company")
     public BaseResponse insetCompany(@RequestBody InsertCompanyRequest request) {
 
         InsertCompanyBizRequest bizRequest = new InsertCompanyBizRequest();
@@ -33,14 +38,18 @@ public class CompanyController {
         bizRequest.setComName(request.getComName());
         service.insert(bizRequest);
 
-        BaseResponse  response = new BaseResponse();
+        BaseResponse response = new BaseResponse();
         response.setSuccess(true);
         response.setMsg("ok");
         return response;
 
     }
 
-    @PostMapping("delete")
+    /**
+     * 删除公司
+     * @param request
+     */
+    @PostMapping(path = "/delete_company")
     public void delete(@RequestBody DeleteCompanyRequest request) {
 
         DeleteCompanyBizRequest bizRequest = new DeleteCompanyBizRequest();
@@ -70,9 +79,17 @@ public class CompanyController {
         return response;
     }
 
-    @PostMapping("update")
-    public void updateCompany(@RequestBody UpdateCompanyRequest request) {
+    /**
+     * 更新公司信息
+     * @param request
+     * @return
+     */
+    @PostMapping(path = "/update")
+    public BaseResponse updateCompany(@RequestBody UpdateCompanyRequest request) {
         service.updateCompany(request);
-
+        BaseResponse response = new BaseResponse();
+        response.setSuccess(true);
+        response.setMsg("ok");
+        return response;
     }
 }

@@ -30,7 +30,7 @@ public class CompanyServiceImpl implements CompanyService {
         entity.setComName(request.getComName());
         String comId = UUIDUtils.getUUID();
         entity.setComId(comId);
-        redisUtil.set("UID"+entity.getComId(), entity);
+        redisUtil.set("UID" + entity.getComId(), entity);
         companyDao.insert(entity);
     }
 
@@ -44,7 +44,7 @@ public class CompanyServiceImpl implements CompanyService {
     public CompanyEntity getCompany(GetCompanyBizRequest bizRequest) {
 
 
-        Object o = redisUtil.get("UID"+bizRequest.getComId());
+        Object o = redisUtil.get("UID" + bizRequest.getComId());
         if (o != null) {
             return (CompanyEntity) o;
         }
@@ -62,7 +62,7 @@ public class CompanyServiceImpl implements CompanyService {
         entity.setComLocal(request.getComLocal());
         entity.setComHolding(request.getComHolding());
         entity.setComId(request.getComId());
-
+        redisUtil.set("UID" + entity.getComId(), entity);
         companyDao.updateCompany(entity);
     }
 }
