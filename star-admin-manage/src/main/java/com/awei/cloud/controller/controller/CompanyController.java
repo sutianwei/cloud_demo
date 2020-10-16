@@ -5,6 +5,7 @@ import com.awei.cloud.controller.request.DeleteCompanyRequest;
 import com.awei.cloud.controller.request.GetCompanyRequest;
 import com.awei.cloud.controller.request.InsertCompanyRequest;
 import com.awei.cloud.controller.request.UpdateCompanyRequest;
+import com.awei.cloud.controller.response.BaseResponse;
 import com.awei.cloud.controller.response.GetCompanyResponse;
 import com.awei.cloud.entity.CompanyEntity;
 import com.awei.cloud.service.request.DeleteCompanyBizRequest;
@@ -23,13 +24,19 @@ public class CompanyController {
     private CompanyService service;
 
     @PostMapping("/insert_company")
-    public void insetCompany(@RequestBody InsertCompanyRequest request) {
+    public BaseResponse insetCompany(@RequestBody InsertCompanyRequest request) {
 
         InsertCompanyBizRequest bizRequest = new InsertCompanyBizRequest();
         bizRequest.setComHolding(request.getComHolding());
         bizRequest.setComLocal(request.getComLocal());
         bizRequest.setComName(request.getComName());
         service.insert(bizRequest);
+
+        BaseResponse  response = new BaseResponse();
+        response.setSuccess(true);
+        response.setMsg("ok");
+        return response;
+
     }
 
     @PostMapping("delete")
