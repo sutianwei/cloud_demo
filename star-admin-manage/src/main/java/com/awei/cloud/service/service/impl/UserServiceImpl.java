@@ -4,7 +4,6 @@ import com.awei.cloud.controller.response.BaseResponse;
 import com.awei.cloud.dao.CompanyDao;
 import com.awei.cloud.entity.CompanyEntity;
 import com.awei.cloud.entity.UserEntity;
-import com.awei.cloud.service.Do.UserDo;
 import com.awei.cloud.service.request.InsertUserBizRequest;
 import com.awei.cloud.service.service.UserService;
 
@@ -21,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private com.awei.cloud.dao.userDao userDao;
+
     @Autowired
     private CompanyDao companyDao;
 
@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
 
 
         List<CompanyEntity> companyEntity = companyDao.selectCompany();
-
 
         Map<String, CompanyEntity> map = companyEntity.stream().collect(Collectors.toMap(CompanyEntity::getComName, Function.identity(), (key1, key2) -> key2));
 
@@ -53,6 +52,9 @@ public class UserServiceImpl implements UserService {
         entity.setUid(UUIDUtils.getUUID());
         entity.setCompany(bizRequest.getCompany());
         userDao.insertUser(entity);
-        return null;
+
+        BaseResponse response = new BaseResponse();
+        response.setData(bizRequest.getCompany()+"添加成功");
+        return response;
     }
 }

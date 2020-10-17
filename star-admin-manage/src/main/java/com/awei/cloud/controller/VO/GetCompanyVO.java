@@ -1,6 +1,5 @@
 package com.awei.cloud.controller.VO;
 
-import javax.persistence.Column;
 
 public class GetCompanyVO {
 

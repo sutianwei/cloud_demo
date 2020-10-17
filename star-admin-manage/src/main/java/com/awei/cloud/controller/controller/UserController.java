@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-
     @Autowired
     private UserService userService;
+
     @PostMapping("/insert")
     public BaseResponse insert(@RequestBody InsertUserRequest request){
 
@@ -24,12 +24,11 @@ public class UserController {
         bizRequest.setPassword(request.getPassword());
         bizRequest.setSex(request.getSex());
 
-        userService.insert(bizRequest);
+        BaseResponse  response =   userService.insert(bizRequest);
 
-        BaseResponse  response = new BaseResponse();
         response.setMsg("ok");
         response.setSuccess(true);
-        response.setData("666");
+        response.setData(response.getData());
         return  response;
     }
 }
