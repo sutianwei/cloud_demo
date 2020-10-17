@@ -18,8 +18,9 @@ public class MongoController {
         MongoTest mgtest=new MongoTest();
         mgtest.setId(11);
         mgtest.setAge(33);
-        mgtest.setName("ceshi");
+        mgtest.setName("sutianwei");
         mtdao.saveTest(mgtest);
+
     }
 
     @GetMapping(value="/test2")
