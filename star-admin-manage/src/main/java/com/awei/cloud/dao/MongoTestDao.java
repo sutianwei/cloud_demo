@@ -1,5 +1,6 @@
 package com.awei.cloud.dao;
 
+import com.awei.cloud.entity.CompanyEntity;
 import com.awei.cloud.entity.MongoTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -15,12 +16,20 @@ public class MongoTestDao {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+
+
+    public void insert(CompanyEntity entity) {
+        mongoTemplate.save(entity);
+    }
+
     /**
      * 创建对象
      */
     public void saveTest(MongoTest test) {
         mongoTemplate.save(test);
     }
+
+
 
     /**
      * 根据用户名查询对象

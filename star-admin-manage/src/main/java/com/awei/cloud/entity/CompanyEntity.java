@@ -3,15 +3,12 @@ package com.awei.cloud.entity;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "COMPANY")
+
 public class CompanyEntity {
 
-    @Id
-    @GeneratedValue()
-    private Integer id;
 
-    @Column(length = 32)
+    private Integer sid;
+
     private String comId;
 
     @Column(length = 12)
@@ -23,12 +20,12 @@ public class CompanyEntity {
     @Column
     private String comLocal;
 
-    public Integer getId() {
-        return id;
+    public Integer getSid() {
+        return sid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSid(Integer sid) {
+        this.sid = sid;
     }
 
     public String getComId() {

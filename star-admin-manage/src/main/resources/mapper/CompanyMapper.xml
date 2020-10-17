@@ -4,7 +4,7 @@
 
 <mapper namespace="com.awei.cloud.dao.CompanyDao">
     <resultMap id="companyMap" type="com.awei.cloud.entity.CompanyEntity">
-        <id column="id" property="id"/>
+        <id column="id" property="sid"/>
         <result column="com_holding" property="comHolding"/>
         <result column="com_id" property="comId"/>
         <result column="com_local" property="comLocal"/>
@@ -15,9 +15,9 @@
         values (#{comHolding},#{comId},#{comLocal},#{comName})
     </insert>
     <delete id="delete" parameterType="com.awei.cloud.entity.CompanyEntity">
-        delete  from  company   where com_id in
-        <foreach collection="ids"  item="ids" open="(" close=")" separator=",">
-                #{ids}
+        delete from company where com_id in
+        <foreach collection="ids" item="ids" open="(" close=")" separator=",">
+            #{ids}
         </foreach>
 
     </delete>

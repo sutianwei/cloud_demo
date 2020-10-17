@@ -2,6 +2,7 @@ package com.awei.cloud.service.service.impl;
 
 import com.awei.cloud.controller.request.UpdateCompanyRequest;
 import com.awei.cloud.dao.CompanyDao;
+import com.awei.cloud.dao.MongoTestDao;
 import com.awei.cloud.entity.CompanyEntity;
 import com.awei.cloud.service.request.DeleteCompanyBizRequest;
 import com.awei.cloud.service.request.GetCompanyBizRequest;
@@ -10,6 +11,7 @@ import com.awei.cloud.service.service.CompanyService;
 import com.awei.cloud.util.RedisUtil;
 import com.awei.cloud.util.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,6 +23,9 @@ public class CompanyServiceImpl implements CompanyService {
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    private MongoTestDao mongoTestDao;
+
     @Override
     public void insert(InsertCompanyBizRequest request) {
 
@@ -30,12 +35,14 @@ public class CompanyServiceImpl implements CompanyService {
         entity.setComName(request.getComName());
         String comId = UUIDUtils.getUUID();
         entity.setComId(comId);
+        mongoTestDao.insert(entity);
         redisUtil.set("UID" + entity.getComId(), entity);
         companyDao.insert(entity);
     }
 
     @Override
     public void deleteCompany(DeleteCompanyBizRequest bizRequest) {
+
         companyDao.delete(bizRequest.getIds());
     }
 

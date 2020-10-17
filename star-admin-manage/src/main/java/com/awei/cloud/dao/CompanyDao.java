@@ -10,6 +10,8 @@ import java.util.*;
 @Repository
 public interface CompanyDao {
 
+
+
     int insert(CompanyEntity entity);
 
     void delete(@Param("ids") Collection<String> ids);
