@@ -18,6 +18,7 @@ public class UserController {
     @PostMapping("/insert")
     public BaseResponse insert(@RequestBody InsertUserRequest request){
 
+
         InsertUserBizRequest bizRequest = new InsertUserBizRequest();
         bizRequest.setCompany(request.getCompany());
         bizRequest.setName(request.getName());
