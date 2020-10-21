@@ -17,4 +17,5 @@ public class UserController {
 
         userService.insert(null);
     }
+
 }
