@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.awei.cloud.dao.CompanyDao">
+    <resultMap id="companyMap" type="com.awei.cloud.entity.CompanyEntity">
+        <id column="id" property="sid"/>
+        <result column="com_holding" property="comHolding"/>
+        <result column="com_id" property="comId"/>
+        <result column="com_local" property="comLocal"/>
+        <result column="com_name" property="comName"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.awei.cloud.entity.UserEntity">
+        insert  into company (com_holding,com_id,com_local,com_name)
+        values (#{comHolding},#{comId},#{comLocal},#{comName})
+    </insert>
+    <delete id="delete" parameterType="com.awei.cloud.entity.CompanyEntity">
+        delete from company where com_id in
+        <foreach collection="ids" item="ids" open="(" close=")" separator=",">
+            #{ids}
+        </foreach>
+
+    </delete>
+
+    <select id="getCompany" resultMap="companyMap">
+        select * from company
+        where com_id = #{comId}
+    </select>
+
+    <update id="updateCompany" parameterType="com.awei.cloud.entity.CompanyEntity">
+        update company
+        set  com_local = #{comLocal},
+            com_name = #{comName},
+            com_holding = #{comHolding}
+        where com_id = #{comId}
+
+    </update>
+    <select id="selectCompany" resultMap="companyMap">
+    select  com_name from company
+
+
+    </select>
+</mapper>
